@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Details{% endblock %}
+
+
+{% block content %}
+<h1>Details for entry {{ object.id }}</h1>
+
+<p>Description: {{ object.description }}</p>
+<p><a href="{% url entry_update object.id %}">update</a> - <a href="{% url entry_delete object.id %}">delete</a></p>
+{% endblock %}

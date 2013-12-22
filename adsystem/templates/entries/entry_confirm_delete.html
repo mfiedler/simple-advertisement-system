@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Delete?{% endblock %}
+
+{% block content %}
+<h1>Delete entry {{ object.id }}?</h1>
+<p>
+	<form action="" method="post">
+		{% csrf_token %}
+		<p>published: {{ object.publication_date }}</p>
+		<p>Description: {{ object.description }}</p>
+		<input type="submit" value="delete" />
+	</form>
+</p>
+{% endblock %}

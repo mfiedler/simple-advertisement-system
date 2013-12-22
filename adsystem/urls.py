@@ -5,9 +5,8 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^adsystem/', include('adsystem.foo.urls')),
-
+	(r'^$', 'django.views.generic.simple.redirect_to', {'url': 'entries'}),
+	(r'^entries/', include('entries.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

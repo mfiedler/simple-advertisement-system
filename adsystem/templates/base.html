@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
+</head>
+
+<body class="{% block bodyclass %}{% endblock %}">
+
+	<!-- Header -->
+	<ul>
+		<li><a href="{% url entry_list %}">all entries</a></li>
+		<li><a href="{% url entry_create %}">new entry</a></li>
+	</ul>
+	<!-- END Header -->
+
+	<!-- Content -->
+	{% block content %}{% endblock %}
+	<!-- END Content -->
+
+</body>
+</html>

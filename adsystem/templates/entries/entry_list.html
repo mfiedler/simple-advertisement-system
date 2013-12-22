@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}All entries{% endblock %}
+
+{% block content %}
+<h1>All entries</h1>
+
+{% if object_list %}
+    <ul>
+    {% for entry in object_list %}
+	<li><a href="{% url entry_detail entry.id %}">{{ entry.publication_date }}</a></li>
+    {% endfor %}
+    </ul>
+	{% if is_paginated %}
+		<ul>
+				<li>page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</li>
+			{% if page_obj.has_previous %}
+				<li><a href="?page={{ page_obj.previous_page_number }}">previous page</a></li>
+			{% endif %}
+			{% if page_obj.has_next %}
+				<li><a href="?page={{ page_obj.next_page_number }}">next page</a></li>
+			{% endif %}
+		</ul>
+	{% endif %}
+{% else %}
+    <p>No entries are available.</p>
+{% endif %}
+{% endblock %}
